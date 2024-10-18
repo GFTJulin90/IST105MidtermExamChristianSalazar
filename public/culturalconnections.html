@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Firebase App with Authentication with Social Networks">
+        <title>List of projects</title>
+        <link rel="stylesheet" href="css/core.min.css" />
+        <link rel="stylesheet" href="css/vendor_bundle.min.css" />
+
+        <link rel="shortcut icon" type="image/x-icon"
+            href="https://canvascctb.s3.ca-central-1.amazonaws.com/account_1/attachments/95/CCTB_favicon.ico" />
+        <script src="https://www.gstatic.com/firebasejs/4.5.2/firebase.js"></script>
+        <script src="js/firebase.js"></script>
+        <script src="https://matriz-teletrabajo-utc.web.app/lib/jquery/jquery-3.2.1.min.js"></script>
+        <script src="js/home.js"></script>
+    </head>
+
+    <button id="logout-btn">Logout</button>
+    
+
+    <body>
+        <h1>Cultural Connections Page!</h1>
+        <p>Hello I'm Christian Julian Salazar. Welcome to my cultural connections page!"</p>
+        <img src="Photo/photobooth.jpg" alt="In middle of the nature" style="width: 100px;" height="100px">
+
+        <p>
+            Cultural shocks:One of the things that struck me when I got here is that people who live on the streets tend 
+            to consume drugs that coincidentally leave them in an unharmed state without being able to move and their body 
+            remains adapted to an uncomfortable position, like in the series, and this is told to me that it is a strategy that 
+            the government implements so that there are no robberies or assaults towards citizens, in the end some die from overdoses, 
+            something that I never expected to see this on the public street.
+            On the other hand, transportation surprises me because I usually see buses full and with a flow of people, but here this service 
+            being public has a high cost compared to other routes that are outside the city, respecting each stop without discrimination or fights 
+            between drivers or passengers, they are even very kind and if you are in need you can ask how to get to a certain place, to any random person, (that happened to me)
+            
+            Things I miss: One of the things I miss is the food, because maybe it is because of the high quality standards of the products that make it a little expensive here, but I 
+            do need to try at least one day the typical dish of my grandmother, like red rice or chicken stew.
+
+            Another thing I miss is the typical store next door where you can find everything for a better price, whether it is for a
+             dollar to make a lunch or buy some candy, but here, whether it is because of quality standards, the regulation of the products is not as open as in Ecuador.
+
+            Amazing things I love:I love being here in safe conditions because despite the difficult situation that much of Latin America is going through,
+             one thinks and sees how other people act, who are not only carried away by power and vice, but here they are open and free to express 
+             who they are, that does not mean that I should be too confident, and whenever I go out anywhere I am always attentive and cautious.
+        </p>
+        
+
+
+    </body>
+
+    <script>
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyAfHdihZydt7bkvzBFDccWYp0CtSUeM2gU",
+    
+            authDomain: "ist105midtermexamchristiansal.firebaseapp.com",
+    
+            projectId: "ist105midtermexamchristiansal",
+    
+            storageBucket: "ist105midtermexamchristiansal.appspot.com",
+    
+            messagingSenderId: "35064370699",
+    
+            appId: "1:35064370699:web:aa990d8e147a4a78b4190e"
+    
+            };
+
+            const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        
+    
+
+        
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            auth.signOut()
+                .then(() => {
+                    window.location.href = 'index.html'; // Redirect to logout
+                })
+                .catch((error) => {
+                    console.error("Error logging out", error);
+                });
+        });
+    </script>
+    <script>
+        
+        document.getElementById('view-wireframe').onclick = function() {
+            document.getElementById('image-modal').style.display = 'block';
+        };
+
+        
+        document.getElementById('close-modal').onclick = function() {
+            document.getElementById('image-modal').style.display = 'none';
+        };
+
+
+    </script>
+
+
+
+</html>
+
+
+

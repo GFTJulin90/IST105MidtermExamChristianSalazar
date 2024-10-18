@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GPA Calculator</title>
+
+       
+    </head>
+
+    
+
+    <body>
+        <body>
+            <h2 >Welcome to the main page</h2> 
+            
+            
+
+            <!-- Email/Password Login Form -->
+            <form id="login-form">
+                <input type="email" id="email" placeholder="Email" required><br>
+                <input type="password" id="password" placeholder="Password" required><br>
+                <button type="submit">Login</button><br>
+            </form>
+
+            <br>
+
+            <!-- Google Sign-In Button -->
+            <button id="google-signin">Google</button>
+
+            <br>
+
+            <button id="phone number">Phone Number</button>
+
+            
+            
+            <input type="text" id="phone" placeholder="put your phone number" />
+            <button id="verifyButton">Verify</button>
+            <p id="message"></p>
+        </body>
+
+
+        
+    </body>
+
+    <script>
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+
+        apiKey: "AIzaSyAfHdihZydt7bkvzBFDccWYp0CtSUeM2gU",
+
+        authDomain: "ist105midtermexamchristiansal.firebaseapp.com",
+
+        projectId: "ist105midtermexamchristiansal",
+
+        storageBucket: "ist105midtermexamchristiansal.appspot.com",
+
+        messagingSenderId: "35064370699",
+
+        appId: "1:35064370699:web:aa990d8e147a4a78b4190e"
+
+        };
+        
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Login with Email/Password
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    window.location.href = 'listprojects.html'; // Redirect on login
+                })
+                .catch((error) => {
+                    console.error("Error logging in", error);
+                });
+        });
+
+                document.getElementById('google-signin').addEventListener('click', function() {
+        var provider = new firebase.auth.GoogleAuthProvider();
+
+        auth.signInWithPopup(provider)
+            .then((result) => {
+                
+                console.log('successful:', result.user);
+                window.location.href = 'listprojects.html'; 
+            })
+            .catch((error) => {
+                
+                console.error('Error:', error);
+            });
+        });
+
+        
+    </script>
+
+
+
+
+</html>
+
